@@ -1,9 +1,9 @@
-#include "SDL.h"
+#include <SDL.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 480
+#include "constants.h"
+#include "Game.h"
 
 int main(int argc, char **argv)
 {
@@ -43,25 +43,17 @@ int main(int argc, char **argv)
 		goto DESTROY_WINDOW;
 	}
 
-
-	while(!quit)
+	struct Game *game = Game_init(renderer);
+	if(game == NULL)
 	{
-		SDL_Event event;
-		while(SDL_PollEvent(&event))
-		{
-			switch(event.type)
-			{
-				case SDL_QUIT:
-				{
-					quit = true;
-				}
-			}
-
-			SDL_RenderClear(renderer);
-			SDL_RenderPresent(renderer);
-		}
+		SDL_Log("[Game] Failed to initialize");
+		exit_code = EXIT_FAILURE;
+		goto DESTROY_RENDERER;
 	}
 
+	Game_run(game);
+
+	Game_free(game);
 DESTROY_RENDERER:
 	SDL_DestroyRenderer(renderer);
 DESTROY_WINDOW:
