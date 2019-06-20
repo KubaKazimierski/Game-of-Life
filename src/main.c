@@ -31,7 +31,6 @@ SOFTWARE.
 
 int main(int argc, char **argv)
 {
-	bool quit = false;
 	int exit_code = EXIT_SUCCESS;
 	SDL_Window *window = NULL;
 	SDL_Renderer *renderer = NULL;
