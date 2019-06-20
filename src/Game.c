@@ -131,7 +131,7 @@ static void handle_events(struct Game *game)
 			case SDL_QUIT:
 			{
 				game->quit = true;
-			}
+			} break;
 		}
 	}
 }
