@@ -52,8 +52,8 @@ int main(int argc, char **argv)
 	}
 
 	Game_run(game);
-
 	Game_free(game);
+
 DESTROY_RENDERER:
 	SDL_DestroyRenderer(renderer);
 DESTROY_WINDOW:

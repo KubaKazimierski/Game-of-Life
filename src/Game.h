@@ -6,8 +6,7 @@
 enum Cell_State
 {
 	DEAD,
-	ALIVE,
-	DYING
+	ALIVE
 };
 
 struct Game

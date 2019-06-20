@@ -7,3 +7,7 @@
 #define BOARD_HEIGHT 50
 
 #define CELL_SIZE 10
+
+#define TICK_TIME 500
+
+#define RANDOM
